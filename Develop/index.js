@@ -38,29 +38,8 @@ async function getInfo(){
     catch(err){
         console.log(err);
     }
-//     try{
 
-//     }
-//     catch(err){
-//         console.log(err);
-        
-//     }
-    try{
-        const reposUrl = "https://api.github.com/users/" + answers.github + "/repos?per_page=100";
-        const gitdata = await axios.get(reposUrl)//.then(function(reply){
-            // console.log(reply[0].name);
-            //console.log(gitdata.data[0].name);//gets name of first repo
-            //console.log(gitdata.data.length);//number of repos
-            
-            
-            //const repoNames = reply.data//.repos;
-            // });
-        }
-        catch(err){
-            console.log(err);
-            
-        };
-        // (console.log(answers.name));getting answers from prompt works
+    
 };
     
 function writeToFile(fileName, data) {
