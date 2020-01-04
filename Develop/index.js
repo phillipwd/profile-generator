@@ -1,11 +1,15 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const axios = require("axios");
+const gen = require("./generateHTML");
+const convertFactory = require("electron-html-to");
+const conversion = convertFactory({
+    convertherPath: convertFactory.converters.PDF
+});
 
 const questions = [
-    // {type: "input", name: "name", message:"What is your Name?"},
     {type: "input", name: "github", message:"What is your GitHub username?"},
-    // {type: "input", name: "blog", message: "What is your blog address?"}
+    {type: "list", name: "color", message:"What is your favorite color?", choices: ["green", "blue", "pink", "red"]},
 ];
 let answers = [];
 
@@ -29,23 +33,18 @@ async function getInfo(){
         profileRequirements.followers = profileData.data.followers;
         profileRequirements.repos = profileData.data.public_repos;
         profileRequirements.bio = profileData.data.bio;
-console.log(profileRequirements);
-
-        
-
+        // console.log(profileRequirements);
     }
     catch(err){
         console.log(err);
     }
+//     try{
 
-    try{
-
-    }
-    catch(err){
-        console.log(err);
+//     }
+//     catch(err){
+//         console.log(err);
         
-    }
-
+//     }
     try{
         const reposUrl = "https://api.github.com/users/" + answers.github + "/repos?per_page=100";
         const gitdata = await axios.get(reposUrl)//.then(function(reply){
