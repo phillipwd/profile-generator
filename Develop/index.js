@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const axios = require("axios");
-const gen = require("./generateHTML");
+const gen = require("./generateHTML.js");
 const convertFactory = require("electron-html-to");
 const conversion = convertFactory({
     convertherPath: convertFactory.converters.PDF
@@ -18,11 +18,11 @@ let profileRequirements = {};
 async function getInfo(){
     try{ 
         answers = await (inquirer.prompt(questions))
-    }
-    catch(err){
-        console.log(err);    
-    };
-    try{
+    // }
+    // catch(err){
+    //     console.log(err);    
+    // };
+    // try{
         const gitProfileUrl = "https://api.github.com/users/" + answers.github
         const profileData = await axios.get(gitProfileUrl)
         profileRequirements.avatarUrl = profileData.data.avatar_url;
@@ -34,13 +34,23 @@ async function getInfo(){
         profileRequirements.repos = profileData.data.public_repos;
         profileRequirements.bio = profileData.data.bio;
         // console.log(profileRequirements);
+        gen(answers.color)
     }
     catch(err){
         console.log(err);
     }
-
-    
+    // try{
+    //     // const page = await gen(answers);
+    // }
+    // catch(err){
+    //     console.log(err);
+        
+    // }
+    // fs.writeFile("index.html", page)
 };
+
+// console.log(page);
+
     
 function writeToFile(fileName, data) {
  
