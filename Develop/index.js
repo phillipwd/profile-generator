@@ -33,8 +33,16 @@ async function getInfo(){
         profileRequirements.followers = profileData.data.followers;
         profileRequirements.repos = profileData.data.public_repos;
         profileRequirements.bio = profileData.data.bio;
+        profileRequirements.color = answers.color;
         // console.log(profileRequirements);
-        gen(answers.color)
+        const pageName = gen(profileRequirements);
+        const fileName = "index.html";
+        function writeToFile(fileName, data) {
+            fs.writeFile(fileName, data, function(err){
+                if(err) throw(err);
+            })
+        }
+        writeToFile(fileName, pageName);
     }
     catch(err){
         console.log(err);
@@ -52,9 +60,6 @@ async function getInfo(){
 // console.log(page);
 
     
-function writeToFile(fileName, data) {
- 
-}
 getInfo();
 // function init() {
 
