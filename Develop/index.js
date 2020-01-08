@@ -8,6 +8,7 @@ const conversion = convertFactory({
 });
 
 const questions = [
+    {type: "input", name: "name", message: "What is your name?"},
     {type: "input", name: "github", message:"What is your GitHub username?"},
     {type: "list", name: "color", message:"What is your favorite color?", choices: ["green", "blue", "pink", "red"]},
 ];
@@ -34,6 +35,7 @@ async function getInfo(){
         profileRequirements.repos = profileData.data.public_repos;
         profileRequirements.bio = profileData.data.bio;
         profileRequirements.color = answers.color;
+        profileRequirements.name = answers.name;
         // console.log(profileRequirements);
         const pageName = gen(profileRequirements);
         const fileName = "index.html";

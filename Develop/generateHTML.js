@@ -107,6 +107,7 @@ function generateHTML(data) {
          border-radius: 50%;
          object-fit: cover;
          margin-top: -75px;
+         margin-bottom: 20px;
          border: 6px solid ${colors[data.color].photoBorderColor};
          box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
          }
@@ -171,7 +172,23 @@ function generateHTML(data) {
             zoom: .75; 
           } 
          }
-      </style>`
+      </style>
+    </head>
+    <body>
+      <div class = "wrapper">  
+        <div class = "container">
+          <div class = "photo-header">
+            <img class = "photo-header" src = ${data.avatarUrl}>
+            <h1>${data.name} </h1>
+            <h3>Currently a ${data.bio}</h3>
+            <div class = "links-nav">
+            <a href=${data.blog}>Blog</a>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </body>
+  </html>`
         }
 
 module.exports = generateHTML;
