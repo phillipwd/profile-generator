@@ -36,7 +36,8 @@ async function getInfo(){
         profileRequirements.bio = profileData.data.bio;
         profileRequirements.color = answers.color;
         profileRequirements.name = answers.name;
-        // console.log(profileRequirements);
+        profileRequirements.location = profileData.data.location
+        console.log(profileRequirements);
         const pageName = gen(profileRequirements);
         const fileName = "index.html";
         function writeToFile(fileName, data) {
