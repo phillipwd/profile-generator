@@ -179,10 +179,12 @@ function generateHTML(data) {
         <div class = "container">
           <div class = "photo-header">
             <img class = "photo-header" src = ${data.avatarUrl}>
-            <h1>${data.name} </h1>
+            <h1>Hi!</h1>
+            <h2>My name is ${data.name}!</h2>
             <h3>Currently a ${data.bio}</h3>
             <div class = "links-nav">
               <a href = https://www.google.com/maps/place/${data.location}/>${data.location}</a>
+              <a href = ${data.githubProfile}>GitHub</a>
               <a href = ${data.blog}>Blog</a>
             </div>
           </div>
