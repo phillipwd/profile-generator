@@ -182,9 +182,41 @@ function generateHTML(data) {
             <h1>${data.name} </h1>
             <h3>Currently a ${data.bio}</h3>
             <div class = "links-nav">
-            <a href=${data.blog}>Blog</a>
+              <a href = https://www.google.com/maps/place/${data.location}/>${data.location}</a>
+              <a href = ${data.blog}>Blog</a>
             </div>
           </div>
+        </div>
+        <div class = "container">
+          <div class = "row">
+            <div class = "col">
+              <div class = "card">
+                <h1>Public Repositories</h1>
+                <h2>${data.repos}</h2>
+              </div>
+            </div>
+            <div class = "col">
+              <div class = "card">
+                <h1>Followers</h1>
+                <h2>${data.followers}</h2>
+              </div>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col">
+              <div class = "card">
+                <h1>GitHub Stars</h1>
+                <h2>${data.following}</h2>
+              </div>
+            </div>
+            <div class = "col">
+              <div class = "card">
+                <h1>Following</h1>
+                <h2>${data.following}</h2>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>  
     </body>
